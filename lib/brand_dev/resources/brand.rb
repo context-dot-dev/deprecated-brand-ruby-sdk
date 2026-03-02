@@ -164,7 +164,7 @@ module BrandDev
       # Endpoint specially designed for platforms that want to identify transaction data
       # by the transaction title.
       #
-      # @overload identify_from_transaction(transaction_info:, city: nil, country_gl: nil, force_language: nil, max_speed: nil, mcc: nil, phone: nil, timeout_ms: nil, request_options: {})
+      # @overload identify_from_transaction(transaction_info:, city: nil, country_gl: nil, force_language: nil, high_confidence_only: nil, max_speed: nil, mcc: nil, phone: nil, timeout_ms: nil, request_options: {})
       #
       # @param transaction_info [String] Transaction information to identify the brand
       #
@@ -173,6 +173,8 @@ module BrandDev
       # @param country_gl [Symbol, BrandDev::Models::BrandIdentifyFromTransactionParams::CountryGl] Optional country code (GL parameter) to specify the country. This affects the ge
       #
       # @param force_language [Symbol, BrandDev::Models::BrandIdentifyFromTransactionParams::ForceLanguage] Optional parameter to force the language of the retrieved brand data.
+      #
+      # @param high_confidence_only [Boolean] When set to true, the API will perform an additional verification steps to ensur
       #
       # @param max_speed [Boolean] Optional parameter to optimize the API call for maximum speed. When set to true,
       #
@@ -579,13 +581,15 @@ module BrandDev
       # (GFM), and returns the result. Uses automatic proxy escalation to handle blocked
       # sites.
       #
-      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, request_options: {})
+      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, shorten_base64_images: nil, request_options: {})
       #
       # @param url [String] Full URL to scrape and convert to markdown (must include http:// or https:// pro
       #
       # @param include_images [Boolean] Include image references in Markdown output
       #
       # @param include_links [Boolean] Preserve hyperlinks in Markdown output
+      #
+      # @param shorten_base64_images [Boolean] Shorten base64-encoded image data in the Markdown output
       #
       # @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -597,7 +601,11 @@ module BrandDev
         @client.request(
           method: :get,
           path: "web/scrape/markdown",
-          query: parsed.transform_keys(include_images: "includeImages", include_links: "includeLinks"),
+          query: parsed.transform_keys(
+            include_images: "includeImages",
+            include_links: "includeLinks",
+            shorten_base64_images: "shortenBase64Images"
+          ),
           model: BrandDev::Models::BrandWebScrapeMdResponse,
           options: options
         )
