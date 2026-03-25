@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1 (2026-03-25)
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/context-dot-dev/ruby-sdk/compare/v0.2.0...v0.2.1)
+
+### Chores
+
+* sync repo ([e3eb15b](https://github.com/context-dot-dev/ruby-sdk/commit/e3eb15bd44f41866d57904b62e4d3dc6c37772d3))
+* update SDK settings ([84a6c7d](https://github.com/context-dot-dev/ruby-sdk/commit/84a6c7d4f5752a044f911caf99c20fbb3eb45240))
+
 ## 0.2.0 (2026-03-18)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/brand-dot-dev/context-ruby-sdk/compare/v0.1.0...v0.2.0)
