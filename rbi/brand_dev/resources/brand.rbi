@@ -504,6 +504,7 @@ module BrandDev
           include_images: T::Boolean,
           include_links: T::Boolean,
           shorten_base64_images: T::Boolean,
+          use_main_content_only: T::Boolean,
           request_options: BrandDev::RequestOptions::OrHash
         ).returns(BrandDev::Models::BrandWebScrapeMdResponse)
       end
@@ -517,6 +518,9 @@ module BrandDev
         include_links: nil,
         # Shorten base64-encoded image data in the Markdown output
         shorten_base64_images: nil,
+        # Extract only the main content of the page, excluding headers, footers, sidebars,
+        # and navigation
+        use_main_content_only: nil,
         request_options: {}
       )
       end

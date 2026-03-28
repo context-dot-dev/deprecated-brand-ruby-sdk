@@ -32,7 +32,14 @@ module BrandDev
       #   @return [Boolean, nil]
       optional :shorten_base64_images, BrandDev::Internal::Type::Boolean
 
-      # @!method initialize(url:, include_images: nil, include_links: nil, shorten_base64_images: nil, request_options: {})
+      # @!attribute use_main_content_only
+      #   Extract only the main content of the page, excluding headers, footers, sidebars,
+      #   and navigation
+      #
+      #   @return [Boolean, nil]
+      optional :use_main_content_only, BrandDev::Internal::Type::Boolean
+
+      # @!method initialize(url:, include_images: nil, include_links: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {BrandDev::Models::BrandWebScrapeMdParams} for more details.
       #
@@ -43,6 +50,8 @@ module BrandDev
       #   @param include_links [Boolean] Preserve hyperlinks in Markdown output
       #
       #   @param shorten_base64_images [Boolean] Shorten base64-encoded image data in the Markdown output
+      #
+      #   @param use_main_content_only [Boolean] Extract only the main content of the page, excluding headers, footers, sidebars,
       #
       #   @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}]
     end

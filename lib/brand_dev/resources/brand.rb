@@ -584,7 +584,7 @@ module BrandDev
       # Scrapes the given URL, converts the HTML content to Markdown, and returns the
       # result.
       #
-      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, shorten_base64_images: nil, request_options: {})
+      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
       #
       # @param url [String] Full URL to scrape and convert to markdown (must include http:// or https:// pro
       #
@@ -593,6 +593,8 @@ module BrandDev
       # @param include_links [Boolean] Preserve hyperlinks in Markdown output
       #
       # @param shorten_base64_images [Boolean] Shorten base64-encoded image data in the Markdown output
+      #
+      # @param use_main_content_only [Boolean] Extract only the main content of the page, excluding headers, footers, sidebars,
       #
       # @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -608,7 +610,8 @@ module BrandDev
           query: query.transform_keys(
             include_images: "includeImages",
             include_links: "includeLinks",
-            shorten_base64_images: "shortenBase64Images"
+            shorten_base64_images: "shortenBase64Images",
+            use_main_content_only: "useMainContentOnly"
           ),
           model: BrandDev::Models::BrandWebScrapeMdResponse,
           options: options

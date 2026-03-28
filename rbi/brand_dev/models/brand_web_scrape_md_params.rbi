@@ -37,12 +37,21 @@ module BrandDev
       sig { params(shorten_base64_images: T::Boolean).void }
       attr_writer :shorten_base64_images
 
+      # Extract only the main content of the page, excluding headers, footers, sidebars,
+      # and navigation
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :use_main_content_only
+
+      sig { params(use_main_content_only: T::Boolean).void }
+      attr_writer :use_main_content_only
+
       sig do
         params(
           url: String,
           include_images: T::Boolean,
           include_links: T::Boolean,
           shorten_base64_images: T::Boolean,
+          use_main_content_only: T::Boolean,
           request_options: BrandDev::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -56,6 +65,9 @@ module BrandDev
         include_links: nil,
         # Shorten base64-encoded image data in the Markdown output
         shorten_base64_images: nil,
+        # Extract only the main content of the page, excluding headers, footers, sidebars,
+        # and navigation
+        use_main_content_only: nil,
         request_options: {}
       )
       end
@@ -67,6 +79,7 @@ module BrandDev
             include_images: T::Boolean,
             include_links: T::Boolean,
             shorten_base64_images: T::Boolean,
+            use_main_content_only: T::Boolean,
             request_options: BrandDev::RequestOptions
           }
         )
