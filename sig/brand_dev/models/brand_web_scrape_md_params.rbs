@@ -5,7 +5,8 @@ module BrandDev
         url: String,
         include_images: bool,
         include_links: bool,
-        :shorten_base64_images => bool
+        :shorten_base64_images => bool,
+        use_main_content_only: bool
       }
       & BrandDev::Internal::Type::request_parameters
 
@@ -27,11 +28,16 @@ module BrandDev
 
       def shorten_base64_images=: (bool) -> bool
 
+      attr_reader use_main_content_only: bool?
+
+      def use_main_content_only=: (bool) -> bool
+
       def initialize: (
         url: String,
         ?include_images: bool,
         ?include_links: bool,
         ?shorten_base64_images: bool,
+        ?use_main_content_only: bool,
         ?request_options: BrandDev::request_opts
       ) -> void
 
@@ -40,6 +46,7 @@ module BrandDev
         include_images: bool,
         include_links: bool,
         :shorten_base64_images => bool,
+        use_main_content_only: bool,
         request_options: BrandDev::RequestOptions
       }
     end
