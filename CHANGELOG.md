@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0 (2026-04-03)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/context-dot-dev/deprecated-brand-ruby-sdk/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **api:** api update ([31fce97](https://github.com/context-dot-dev/deprecated-brand-ruby-sdk/commit/31fce97412ff85c3c00d97941c75c7abcb52ac3f))
+
+
+### Bug Fixes
+
+* align path encoding with RFC 3986 section 3.3 ([d7380ea](https://github.com/context-dot-dev/deprecated-brand-ruby-sdk/commit/d7380ea2e73abf9d87f40dad634fb8d542dc7e52))
+* variable name typo ([83f277c](https://github.com/context-dot-dev/deprecated-brand-ruby-sdk/commit/83f277c8837aff78ec010a77040a33dc42771bca))
+
 ## 1.1.0 (2026-03-28)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/context-dot-dev/deprecated-brand-ruby-sdk/compare/v1.0.0...v1.1.0)
