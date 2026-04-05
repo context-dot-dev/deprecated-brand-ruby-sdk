@@ -3137,11 +3137,22 @@ module BrandDev
               )
             end
 
-          # Type of social media, e.g., 'facebook', 'twitter'
-          sig { returns(T.nilable(String)) }
+          # Type of social media platform
+          sig do
+            returns(
+              T.nilable(
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            )
+          end
           attr_reader :type
 
-          sig { params(type: String).void }
+          sig do
+            params(
+              type:
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::OrSymbol
+            ).void
+          end
           attr_writer :type
 
           # URL of the social media page
@@ -3151,17 +3162,211 @@ module BrandDev
           sig { params(url: String).void }
           attr_writer :url
 
-          sig { params(type: String, url: String).returns(T.attached_class) }
+          sig do
+            params(
+              type:
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::OrSymbol,
+              url: String
+            ).returns(T.attached_class)
+          end
           def self.new(
-            # Type of social media, e.g., 'facebook', 'twitter'
+            # Type of social media platform
             type: nil,
             # URL of the social media page
             url: nil
           )
           end
 
-          sig { override.returns({ type: String, url: String }) }
+          sig do
+            override.returns(
+              {
+                type:
+                  BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol,
+                url: String
+              }
+            )
+          end
           def to_hash
+          end
+
+          # Type of social media platform
+          module Type
+            extend BrandDev::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            X =
+              T.let(
+                :x,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            FACEBOOK =
+              T.let(
+                :facebook,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            INSTAGRAM =
+              T.let(
+                :instagram,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            LINKEDIN =
+              T.let(
+                :linkedin,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            YOUTUBE =
+              T.let(
+                :youtube,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            PINTEREST =
+              T.let(
+                :pinterest,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            TIKTOK =
+              T.let(
+                :tiktok,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            DRIBBBLE =
+              T.let(
+                :dribbble,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            GITHUB =
+              T.let(
+                :github,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            BEHANCE =
+              T.let(
+                :behance,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            SNAPCHAT =
+              T.let(
+                :snapchat,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            WHATSAPP =
+              T.let(
+                :whatsapp,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            TELEGRAM =
+              T.let(
+                :telegram,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            LINE =
+              T.let(
+                :line,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            DISCORD =
+              T.let(
+                :discord,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            TWITCH =
+              T.let(
+                :twitch,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            VIMEO =
+              T.let(
+                :vimeo,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            IMDB =
+              T.let(
+                :imdb,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            TUMBLR =
+              T.let(
+                :tumblr,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            FLICKR =
+              T.let(
+                :flickr,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            GIPHY =
+              T.let(
+                :giphy,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            MEDIUM =
+              T.let(
+                :medium,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            SPOTIFY =
+              T.let(
+                :spotify,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            SOUNDCLOUD =
+              T.let(
+                :soundcloud,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            TRIPADVISOR =
+              T.let(
+                :tripadvisor,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            YELP =
+              T.let(
+                :yelp,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            PRODUCTHUNT =
+              T.let(
+                :producthunt,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            REDDIT =
+              T.let(
+                :reddit,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            CRUNCHBASE =
+              T.let(
+                :crunchbase,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            APPSTORE =
+              T.let(
+                :appstore,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+            PLAYSTORE =
+              T.let(
+                :playstore,
+                BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  BrandDev::Models::BrandRetrieveResponse::Brand::Social::Type::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
           end
         end
 
