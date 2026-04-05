@@ -1293,20 +1293,103 @@ module BrandDev
           def self?.values: -> ::Array[BrandDev::Models::BrandRetrieveByEmailResponse::Brand::primary_language]
         end
 
-        type social = { type: String, url: String }
+        type social =
+          {
+            type: BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_,
+            url: String
+          }
 
         class Social < BrandDev::Internal::Type::BaseModel
-          attr_reader type: String?
+          attr_reader type: BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_?
 
-          def type=: (String) -> String
+          def type=: (
+            BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_
+          ) -> BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_
 
           attr_reader url: String?
 
           def url=: (String) -> String
 
-          def initialize: (?type: String, ?url: String) -> void
+          def initialize: (
+            ?type: BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_,
+            ?url: String
+          ) -> void
 
-          def to_hash: -> { type: String, url: String }
+          def to_hash: -> {
+            type: BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_,
+            url: String
+          }
+
+          type type_ =
+            :x
+            | :facebook
+            | :instagram
+            | :linkedin
+            | :youtube
+            | :pinterest
+            | :tiktok
+            | :dribbble
+            | :github
+            | :behance
+            | :snapchat
+            | :whatsapp
+            | :telegram
+            | :line
+            | :discord
+            | :twitch
+            | :vimeo
+            | :imdb
+            | :tumblr
+            | :flickr
+            | :giphy
+            | :medium
+            | :spotify
+            | :soundcloud
+            | :tripadvisor
+            | :yelp
+            | :producthunt
+            | :reddit
+            | :crunchbase
+            | :appstore
+            | :playstore
+
+          module Type
+            extend BrandDev::Internal::Type::Enum
+
+            X: :x
+            FACEBOOK: :facebook
+            INSTAGRAM: :instagram
+            LINKEDIN: :linkedin
+            YOUTUBE: :youtube
+            PINTEREST: :pinterest
+            TIKTOK: :tiktok
+            DRIBBBLE: :dribbble
+            GITHUB: :github
+            BEHANCE: :behance
+            SNAPCHAT: :snapchat
+            WHATSAPP: :whatsapp
+            TELEGRAM: :telegram
+            LINE: :line
+            DISCORD: :discord
+            TWITCH: :twitch
+            VIMEO: :vimeo
+            IMDB: :imdb
+            TUMBLR: :tumblr
+            FLICKR: :flickr
+            GIPHY: :giphy
+            MEDIUM: :medium
+            SPOTIFY: :spotify
+            SOUNDCLOUD: :soundcloud
+            TRIPADVISOR: :tripadvisor
+            YELP: :yelp
+            PRODUCTHUNT: :producthunt
+            REDDIT: :reddit
+            CRUNCHBASE: :crunchbase
+            APPSTORE: :appstore
+            PLAYSTORE: :playstore
+
+            def self?.values: -> ::Array[BrandDev::Models::BrandRetrieveByEmailResponse::Brand::Social::type_]
+          end
         end
 
         type stock = { exchange: String, ticker: String }
