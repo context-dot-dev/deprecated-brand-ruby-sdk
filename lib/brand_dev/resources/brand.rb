@@ -432,44 +432,6 @@ module BrandDev
       end
 
       # Some parameter documentations has been truncated, see
-      # {BrandDev::Models::BrandScreenshotParams} for more details.
-      #
-      # Capture a screenshot of a website. Supports both viewport (standard browser
-      # view) and full-page screenshots. Can also screenshot specific page types (login,
-      # pricing, etc.) by using heuristics to find the appropriate URL. Either 'domain'
-      # or 'directUrl' must be provided as a query parameter, but not both. Returns a
-      # URL to the uploaded screenshot image hosted on our CDN.
-      #
-      # @overload screenshot(direct_url: nil, domain: nil, full_screenshot: nil, page: nil, prioritize: nil, request_options: {})
-      #
-      # @param direct_url [String] A specific URL to screenshot directly, bypassing domain resolution (e.g., 'https
-      #
-      # @param domain [String] Domain name to take screenshot of (e.g., 'example.com', 'google.com'). The domai
-      #
-      # @param full_screenshot [Symbol, BrandDev::Models::BrandScreenshotParams::FullScreenshot] Optional parameter to determine screenshot type. If 'true', takes a full page sc
-      #
-      # @param page [Symbol, BrandDev::Models::BrandScreenshotParams::Page] Optional parameter to specify which page type to screenshot. If provided, the sy
-      #
-      # @param prioritize [Symbol, BrandDev::Models::BrandScreenshotParams::Prioritize] Optional parameter to prioritize screenshot capture. If 'speed', optimizes for f
-      #
-      # @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [BrandDev::Models::BrandScreenshotResponse]
-      #
-      # @see BrandDev::Models::BrandScreenshotParams
-      def screenshot(params = {})
-        parsed, options = BrandDev::BrandScreenshotParams.dump_request(params)
-        query = BrandDev::Internal::Util.encode_query_params(parsed)
-        @client.request(
-          method: :get,
-          path: "brand/screenshot",
-          query: query.transform_keys(direct_url: "directUrl", full_screenshot: "fullScreenshot"),
-          model: BrandDev::Models::BrandScreenshotResponse,
-          options: options
-        )
-      end
-
-      # Some parameter documentations has been truncated, see
       # {BrandDev::Models::BrandStyleguideParams} for more details.
       #
       # Automatically extract comprehensive design system information from a brand's

@@ -65,8 +65,6 @@ module BrandDev
 
   BrandRetrieveSimplifiedParams = BrandDev::Models::BrandRetrieveSimplifiedParams
 
-  BrandScreenshotParams = BrandDev::Models::BrandScreenshotParams
-
   BrandStyleguideParams = BrandDev::Models::BrandStyleguideParams
 
   BrandWebScrapeHTMLParams = BrandDev::Models::BrandWebScrapeHTMLParams

@@ -101,15 +101,6 @@ module BrandDev
         ?request_options: BrandDev::request_opts
       ) -> BrandDev::Models::BrandRetrieveSimplifiedResponse
 
-      def screenshot: (
-        ?direct_url: String,
-        ?domain: String,
-        ?full_screenshot: BrandDev::Models::BrandScreenshotParams::full_screenshot,
-        ?page: BrandDev::Models::BrandScreenshotParams::page,
-        ?prioritize: BrandDev::Models::BrandScreenshotParams::prioritize,
-        ?request_options: BrandDev::request_opts
-      ) -> BrandDev::Models::BrandScreenshotResponse
-
       def styleguide: (
         ?direct_url: String,
         ?domain: String,

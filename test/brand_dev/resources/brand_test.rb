@@ -248,26 +248,6 @@ class BrandDev::Test::Resources::BrandTest < BrandDev::Test::ResourceTest
     end
   end
 
-  def test_screenshot
-    skip("Mock server tests are disabled")
-
-    response = @brand_dev.brand.screenshot
-
-    assert_pattern do
-      response => BrandDev::Models::BrandScreenshotResponse
-    end
-
-    assert_pattern do
-      response => {
-        code: Integer | nil,
-        domain: String | nil,
-        screenshot: String | nil,
-        screenshot_type: BrandDev::Models::BrandScreenshotResponse::ScreenshotType | nil,
-        status: String | nil
-      }
-    end
-  end
-
   def test_styleguide
     skip("Mock server tests are disabled")
 
