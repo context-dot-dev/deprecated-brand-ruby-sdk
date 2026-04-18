@@ -211,25 +211,6 @@ class BrandDev::Test::Resources::BrandTest < BrandDev::Test::ResourceTest
     end
   end
 
-  def test_retrieve_naics_required_params
-    skip("Mock server tests are disabled")
-
-    response = @brand_dev.brand.retrieve_naics(input: "input")
-
-    assert_pattern do
-      response => BrandDev::Models::BrandRetrieveNaicsResponse
-    end
-
-    assert_pattern do
-      response => {
-        codes: ^(BrandDev::Internal::Type::ArrayOf[BrandDev::Models::BrandRetrieveNaicsResponse::Code]) | nil,
-        domain: String | nil,
-        status: String | nil,
-        type: String | nil
-      }
-    end
-  end
-
   def test_retrieve_simplified_required_params
     skip("Mock server tests are disabled")
 

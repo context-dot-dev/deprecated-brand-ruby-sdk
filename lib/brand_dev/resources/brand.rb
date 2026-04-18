@@ -362,42 +362,6 @@ module BrandDev
       end
 
       # Some parameter documentations has been truncated, see
-      # {BrandDev::Models::BrandRetrieveNaicsParams} for more details.
-      #
-      # Endpoint to classify any brand into a 2022 NAICS code.
-      #
-      # @overload retrieve_naics(input:, max_results: nil, min_results: nil, timeout_ms: nil, request_options: {})
-      #
-      # @param input [String] Brand domain or title to retrieve NAICS code for. If a valid domain is provided
-      #
-      # @param max_results [Integer] Maximum number of NAICS codes to return. Must be between 1 and 10. Defaults to 5
-      #
-      # @param min_results [Integer] Minimum number of NAICS codes to return. Must be at least 1. Defaults to 1.
-      #
-      # @param timeout_ms [Integer] Optional timeout in milliseconds for the request. If the request takes longer th
-      #
-      # @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [BrandDev::Models::BrandRetrieveNaicsResponse]
-      #
-      # @see BrandDev::Models::BrandRetrieveNaicsParams
-      def retrieve_naics(params)
-        parsed, options = BrandDev::BrandRetrieveNaicsParams.dump_request(params)
-        query = BrandDev::Internal::Util.encode_query_params(parsed)
-        @client.request(
-          method: :get,
-          path: "brand/naics",
-          query: query.transform_keys(
-            max_results: "maxResults",
-            min_results: "minResults",
-            timeout_ms: "timeoutMS"
-          ),
-          model: BrandDev::Models::BrandRetrieveNaicsResponse,
-          options: options
-        )
-      end
-
-      # Some parameter documentations has been truncated, see
       # {BrandDev::Models::BrandRetrieveSimplifiedParams} for more details.
       #
       # Returns a simplified version of brand data containing only essential
