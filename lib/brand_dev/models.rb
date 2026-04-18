@@ -59,8 +59,6 @@ module BrandDev
 
   BrandRetrieveByTickerParams = BrandDev::Models::BrandRetrieveByTickerParams
 
-  BrandRetrieveNaicsParams = BrandDev::Models::BrandRetrieveNaicsParams
-
   BrandRetrieveParams = BrandDev::Models::BrandRetrieveParams
 
   BrandRetrieveSimplifiedParams = BrandDev::Models::BrandRetrieveSimplifiedParams
