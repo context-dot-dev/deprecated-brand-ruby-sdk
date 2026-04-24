@@ -96,6 +96,7 @@ module BrandDev
       def web_scrape_html: (
         url: String,
         ?max_age_ms: Integer,
+        ?parse_pdf: bool,
         ?request_options: BrandDev::request_opts
       ) -> BrandDev::Models::BrandWebScrapeHTMLResponse
 
@@ -109,6 +110,7 @@ module BrandDev
         ?include_images: bool,
         ?include_links: bool,
         ?max_age_ms: Integer,
+        ?parse_pdf: bool,
         ?shorten_base64_images: bool,
         ?use_main_content_only: bool,
         ?request_options: BrandDev::request_opts

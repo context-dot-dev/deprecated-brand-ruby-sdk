@@ -348,6 +348,7 @@ module BrandDev
         params(
           url: String,
           max_age_ms: Integer,
+          parse_pdf: T::Boolean,
           request_options: BrandDev::RequestOptions::OrHash
         ).returns(BrandDev::Models::BrandWebScrapeHTMLResponse)
       end
@@ -358,6 +359,10 @@ module BrandDev
         # younger than this many milliseconds. Defaults to 1 day (86400000 ms) when
         # omitted. Max is 30 days (2592000000 ms). Set to 0 to always scrape fresh.
         max_age_ms: nil,
+        # When true (default), PDF URLs are fetched and their text layer is extracted and
+        # returned wrapped in <html><pdf>…</pdf></html>. When false, PDF URLs are skipped
+        # and a 400 WEBSITE_ACCESS_ERROR is returned.
+        parse_pdf: nil,
         request_options: {}
       )
       end
@@ -385,6 +390,7 @@ module BrandDev
           include_images: T::Boolean,
           include_links: T::Boolean,
           max_age_ms: Integer,
+          parse_pdf: T::Boolean,
           shorten_base64_images: T::Boolean,
           use_main_content_only: T::Boolean,
           request_options: BrandDev::RequestOptions::OrHash
@@ -402,6 +408,10 @@ module BrandDev
         # younger than this many milliseconds. Defaults to 1 day (86400000 ms) when
         # omitted. Max is 30 days (2592000000 ms). Set to 0 to always scrape fresh.
         max_age_ms: nil,
+        # When true (default), PDF URLs are fetched and their text layer is extracted and
+        # converted to Markdown. When false, PDF URLs are skipped and a 400
+        # WEBSITE_ACCESS_ERROR is returned.
+        parse_pdf: nil,
         # Shorten base64-encoded image data in the Markdown output
         shorten_base64_images: nil,
         # Extract only the main content of the page, excluding headers, footers, sidebars,

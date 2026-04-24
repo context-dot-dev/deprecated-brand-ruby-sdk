@@ -6,6 +6,7 @@ module BrandDev
         include_images: bool,
         include_links: bool,
         max_age_ms: Integer,
+        parse_pdf: bool,
         :shorten_base64_images => bool,
         use_main_content_only: bool
       }
@@ -29,6 +30,10 @@ module BrandDev
 
       def max_age_ms=: (Integer) -> Integer
 
+      attr_reader parse_pdf: bool?
+
+      def parse_pdf=: (bool) -> bool
+
       attr_reader shorten_base64_images: bool?
 
       def shorten_base64_images=: (bool) -> bool
@@ -42,6 +47,7 @@ module BrandDev
         ?include_images: bool,
         ?include_links: bool,
         ?max_age_ms: Integer,
+        ?parse_pdf: bool,
         ?shorten_base64_images: bool,
         ?use_main_content_only: bool,
         ?request_options: BrandDev::request_opts
@@ -52,6 +58,7 @@ module BrandDev
         include_images: bool,
         include_links: bool,
         max_age_ms: Integer,
+        parse_pdf: bool,
         :shorten_base64_images => bool,
         use_main_content_only: bool,
         request_options: BrandDev::RequestOptions
