@@ -21,13 +21,23 @@ module BrandDev
       #   @return [Integer, nil]
       optional :max_age_ms, Integer
 
-      # @!method initialize(url:, max_age_ms: nil, request_options: {})
+      # @!attribute parse_pdf
+      #   When true (default), PDF URLs are fetched and their text layer is extracted and
+      #   returned wrapped in <html><pdf>…</pdf></html>. When false, PDF URLs are skipped
+      #   and a 400 WEBSITE_ACCESS_ERROR is returned.
+      #
+      #   @return [Boolean, nil]
+      optional :parse_pdf, BrandDev::Internal::Type::Boolean
+
+      # @!method initialize(url:, max_age_ms: nil, parse_pdf: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {BrandDev::Models::BrandWebScrapeHTMLParams} for more details.
       #
       #   @param url [String] Full URL to scrape (must include http:// or https:// protocol)
       #
       #   @param max_age_ms [Integer] Return a cached result if a prior scrape for the same parameters exists and is y
+      #
+      #   @param parse_pdf [Boolean] When true (default), PDF URLs are fetched and their text layer is extracted and
       #
       #   @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}]
     end

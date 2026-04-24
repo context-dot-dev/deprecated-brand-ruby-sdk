@@ -396,11 +396,13 @@ module BrandDev
       #
       # Scrapes the given URL and returns the raw HTML content of the page.
       #
-      # @overload web_scrape_html(url:, max_age_ms: nil, request_options: {})
+      # @overload web_scrape_html(url:, max_age_ms: nil, parse_pdf: nil, request_options: {})
       #
       # @param url [String] Full URL to scrape (must include http:// or https:// protocol)
       #
       # @param max_age_ms [Integer] Return a cached result if a prior scrape for the same parameters exists and is y
+      #
+      # @param parse_pdf [Boolean] When true (default), PDF URLs are fetched and their text layer is extracted and
       #
       # @param request_options [BrandDev::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -413,7 +415,7 @@ module BrandDev
         @client.request(
           method: :get,
           path: "web/scrape/html",
-          query: query.transform_keys(max_age_ms: "maxAgeMs"),
+          query: query.transform_keys(max_age_ms: "maxAgeMs", parse_pdf: "parsePDF"),
           model: BrandDev::Models::BrandWebScrapeHTMLResponse,
           options: options
         )
@@ -449,7 +451,7 @@ module BrandDev
       #
       # Scrapes the given URL into LLM usable Markdown.
       #
-      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, max_age_ms: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
+      # @overload web_scrape_md(url:, include_images: nil, include_links: nil, max_age_ms: nil, parse_pdf: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
       #
       # @param url [String] Full URL to scrape into LLM usable Markdown (must include http:// or https:// pr
       #
@@ -458,6 +460,8 @@ module BrandDev
       # @param include_links [Boolean] Preserve hyperlinks in Markdown output
       #
       # @param max_age_ms [Integer] Return a cached result if a prior scrape for the same parameters exists and is y
+      #
+      # @param parse_pdf [Boolean] When true (default), PDF URLs are fetched and their text layer is extracted and
       #
       # @param shorten_base64_images [Boolean] Shorten base64-encoded image data in the Markdown output
       #
@@ -478,6 +482,7 @@ module BrandDev
             include_images: "includeImages",
             include_links: "includeLinks",
             max_age_ms: "maxAgeMs",
+            parse_pdf: "parsePDF",
             shorten_base64_images: "shortenBase64Images",
             use_main_content_only: "useMainContentOnly"
           ),

@@ -34,6 +34,14 @@ module BrandDev
       #   @return [Integer, nil]
       optional :max_age_ms, Integer
 
+      # @!attribute parse_pdf
+      #   When true (default), PDF URLs are fetched and their text layer is extracted and
+      #   converted to Markdown. When false, PDF URLs are skipped and a 400
+      #   WEBSITE_ACCESS_ERROR is returned.
+      #
+      #   @return [Boolean, nil]
+      optional :parse_pdf, BrandDev::Internal::Type::Boolean
+
       # @!attribute shorten_base64_images
       #   Shorten base64-encoded image data in the Markdown output
       #
@@ -47,7 +55,7 @@ module BrandDev
       #   @return [Boolean, nil]
       optional :use_main_content_only, BrandDev::Internal::Type::Boolean
 
-      # @!method initialize(url:, include_images: nil, include_links: nil, max_age_ms: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
+      # @!method initialize(url:, include_images: nil, include_links: nil, max_age_ms: nil, parse_pdf: nil, shorten_base64_images: nil, use_main_content_only: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {BrandDev::Models::BrandWebScrapeMdParams} for more details.
       #
@@ -58,6 +66,8 @@ module BrandDev
       #   @param include_links [Boolean] Preserve hyperlinks in Markdown output
       #
       #   @param max_age_ms [Integer] Return a cached result if a prior scrape for the same parameters exists and is y
+      #
+      #   @param parse_pdf [Boolean] When true (default), PDF URLs are fetched and their text layer is extracted and
       #
       #   @param shorten_base64_images [Boolean] Shorten base64-encoded image data in the Markdown output
       #
