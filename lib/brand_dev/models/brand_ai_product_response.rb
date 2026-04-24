@@ -70,6 +70,15 @@ module BrandDev
         #   @return [String]
         required :name, String
 
+        # @!attribute sku
+        #   Stock Keeping Unit (product identifier). Extracted from structured data (JSON-LD
+        #   Product.sku), microdata, meta tags, platform-specific identifiers (e.g. Amazon
+        #   ASIN, Etsy listing ID), or visible SKU/Model/Item # text. Null if no identifier
+        #   is found.
+        #
+        #   @return [String, nil]
+        required :sku, String, nil?: true
+
         # @!attribute tags
         #   Tags associated with the product
         #
@@ -128,7 +137,10 @@ module BrandDev
         #   @return [String, nil]
         optional :url, String, nil?: true
 
-        # @!method initialize(description:, features:, images:, name:, tags:, target_audience:, billing_frequency: nil, category: nil, currency: nil, image_url: nil, price: nil, pricing_model: nil, url: nil)
+        # @!method initialize(description:, features:, images:, name:, sku:, tags:, target_audience:, billing_frequency: nil, category: nil, currency: nil, image_url: nil, price: nil, pricing_model: nil, url: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {BrandDev::Models::BrandAIProductResponse::Product} for more details.
+        #
         #   The extracted product data, or null if not a product page
         #
         #   @param description [String] Description of the product
@@ -138,6 +150,8 @@ module BrandDev
         #   @param images [Array<String>] URLs to product images on the page (up to 7)
         #
         #   @param name [String] Name of the product
+        #
+        #   @param sku [String, nil] Stock Keeping Unit (product identifier). Extracted from structured data (JSON-LD
         #
         #   @param tags [Array<String>] Tags associated with the product
         #
