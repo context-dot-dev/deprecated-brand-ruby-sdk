@@ -42,9 +42,11 @@ module BrandDev
       # Given a single URL, determines if it is a product page and extracts the product
       # information.
       #
-      # @overload ai_product(url:, timeout_ms: nil, request_options: {})
+      # @overload ai_product(url:, max_age_ms: nil, timeout_ms: nil, request_options: {})
       #
       # @param url [String] The product page URL to extract product data from.
+      #
+      # @param max_age_ms [Integer] Return a cached result if a prior scrape for the same parameters exists and is y
       #
       # @param timeout_ms [Integer] Optional timeout in milliseconds for the request. Maximum allowed value is 30000
       #
