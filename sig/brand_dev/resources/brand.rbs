@@ -11,6 +11,7 @@ module BrandDev
 
       def ai_product: (
         url: String,
+        ?max_age_ms: Integer,
         ?timeout_ms: Integer,
         ?request_options: BrandDev::request_opts
       ) -> BrandDev::Models::BrandAIProductResponse
